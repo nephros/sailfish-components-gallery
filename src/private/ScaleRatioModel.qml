@@ -1,5 +1,6 @@
 /****************************************************************************************
 ** Copyright (c) 2013 - 2023 Jolla Ltd.
+** Copyright (c) 2023   Peter G. (nephros)
 **
 ** All rights reserved.
 **
@@ -34,65 +35,59 @@
 **
 ****************************************************************************************/
 
-#ifndef DECLARATIVEIMAGEEDITOR_H
-#define DECLARATIVEIMAGEEDITOR_H
+import QtQuick 2.0
 
-#include <QtQml>
-#include <QQuickItem>
-#include <QString>
+ListModel {
+    // absolute
+    ListElement {
+        //: scale ratio
+        //% "%1%%"
+        text: qsTrId("components_gallery-li-scale_ratio_perc").arg(10)
+        ratio: 0.9
+        type: "ratio"
+    }
+    ListElement {
+        //: scale ratio
+        //% "%1%%"
+        text: qsTrId("components_gallery-li-scale_ratio_perc").arg(20)
+        ratio: 0.8
+        type: "ratio"
+    }
+    ListElement {
+        //: scale ratio
+        //% "%1%%"
+        text: qsTrId("components_gallery-li-scale_ratio_perc").arg(25)
+        ratio: 0.75
+        type: "ratio"
+    }
+    ListElement {
+        //: scale ratio
+        //% "%1%%"
+        text: qsTrId("components_gallery-li-scale_ratio_perc").arg(50)
+        ratio: 0.5
+        type: "ratio"
+    }
+    // absolute
+    ListElement {
+        //: absolute pixel width
+        //% "%1px"
+        text: qsTrId("components_gallery-li-scale_absolute").arg(newWidth)
+        newWidth: 1080
+        type: "absolute"
+    }
+    ListElement {
+        //: absolute pixel width
+        //% "%1px"
+        text: qsTrId("components_gallery-li-scale_absolute").arg(newWidth)
+        newWidth: 1280
+        type: "absolute"
+    }
+    ListElement {
+        //: absolute pixel width
+        //% "%1px"
+        text: qsTrId("components_gallery-li-scale_absolute").arg(newWidth)
+        newWidth: 2048
+        type: "absolute"
+    }
 
-class DeclarativeImageEditorPrivate;
-
-class DeclarativeImageEditor : public QQuickItem
-{
-    Q_OBJECT
-    Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged)
-    Q_PROPERTY(QUrl target READ target WRITE setTarget NOTIFY targetChanged)
-    Q_ENUMS(EditOperationType)
-
-public:
-
-    enum EditOperationType {
-        None,
-        Crop,
-        Rotate,
-        AdjustLevels,
-        Scale,
-    };
-
-    explicit DeclarativeImageEditor(QQuickItem *parent = 0);
-    virtual ~DeclarativeImageEditor();
-
-    QUrl source() const;
-    void setSource(const QUrl &source);
-
-    QUrl target() const;
-    void setTarget(const QUrl &target);
-
-    Q_INVOKABLE void crop(const QSizeF &cropSize, const QSizeF &imageSize, const QPointF &position);
-    Q_INVOKABLE void rotate(int rotation);
-    Q_INVOKABLE void adjustLevels(double brightness, double contrast);
-    Q_INVOKABLE void scale(const double &factor, const QSizeF &imageSize);
-
-Q_SIGNALS:
-    void cropped(bool success);
-    void rotated(bool success);
-    void levelsAdjusted(bool success);
-    void sourceChanged();
-    void targetChanged();
-    void scaled(bool success);
-
-private Q_SLOTS:
-    void cropResult(bool success, const QString &targetFile);
-    void rotateResult(bool success, const QString &targetFile);
-    void adjustLevelsResult(bool success, const QString &targetFile);
-    void scale(bool success, const QString &targetFile);
-
-private:
-    DeclarativeImageEditorPrivate *d_ptr;
-    Q_DECLARE_PRIVATE(DeclarativeImageEditor)
-};
-
-QML_DECLARE_TYPE(DeclarativeImageEditor)
-
-#endif // DECLARATIVEIMAGEEDITOR_H
+}

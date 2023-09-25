@@ -72,6 +72,10 @@ Dialog {
     /*!
       \internal
     */
+    property bool _scaleMenu
+    /*!
+      \internal
+    */
     property string _cropType: "none"
     /*!
       \internal
@@ -95,9 +99,13 @@ Dialog {
     signal edited
     signal finished
 
+    /*!
+      \internal
+    */
+    property bool _menuShown: _cropMenu || _scaleMenu
     canAccept: imageRotation !== 0 || brightness !== 0 || contrast !== 0 || (_cropType !== "none" || cropOnly)
-    backNavigation: !_cropMenu
-    forwardNavigation: !_cropMenu
+    backNavigation: !_menuShown
+    forwardNavigation: !_menuShown
 
     _opaqueBackground: true
 
@@ -195,7 +203,7 @@ Dialog {
                 topDown: true
                 width: parent.width
                 height: titleLabel.height + 2 * titleLabel.y
-                visible: !previewImage.longPressed && !_cropMenu
+                visible: !previewImage.longPressed && !_menuShown
 
                 Label {
                     id: titleLabel
@@ -289,6 +297,13 @@ Dialog {
                     _lightAndContrastMode = false
                 }
             }
+            IconButton {
+                icon.source: "image://theme/icon-m-scale?" + Theme.lightPrimaryColor
+                onClicked: {
+                    _scaleMenu = true
+                    _lightAndContrastMode = false
+                }
+            }
         }
     }
 
@@ -309,6 +324,25 @@ Dialog {
                 _cropMenu = false
             }
             onCanceled: _cropMenu = false
+        }
+    }
+    Loader {
+        Behavior on opacity { FadeAnimator {}}
+        opacity: enabled ? 1.0 : 0.0
+        active: _scaleMenu
+        enabled: _scaleMenu
+        anchors.fill: parent
+        onActiveChanged: if (active) active = true // remove binding
+        sourceComponent: ScaleMenu {
+            active: _scaleMenu
+            onSelected: {
+                _scaleHeight = height
+                _scaleWidth = width
+                _scaleRatio = ratio
+                previewImage.scaleRatio = ratio
+                _scaleMenu = false
+            }
+            onCanceled: _scaleMenu = false
         }
     }
 

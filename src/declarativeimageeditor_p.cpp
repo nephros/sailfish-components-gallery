@@ -344,3 +344,45 @@ void DeclarativeImageEditorPrivate::adjustLevels(const QString &source, const QS
 #endif
 }
 
+void  DeclarativeImageEditorPrivate::scale(const QString &source, const QString &target, const QSizeF &factor, const QSizeF &imageSize)
+{
+#ifndef DESKTOP
+    QImageReader reader(source);
+
+    if (reader.canRead() && !imageSize.isEmpty()) {
+        QByteArray format = reader.format();
+        QSize scaledSize = reader.size();
+
+        if (scaledSize.width() > 3264 || scaledSize.height() > 3264) {
+            scaledSize = scaledSize.scaled(3264, 3264, Qt::KeepAspectRatio);
+        }
+
+        QImage scaledImage = reader.read();
+        if (scaledSize.width() > scaledSize.height()) {
+            scaledImage = scaledImage.scaledToWidth( scaledSize.width() * factor )
+        } else {
+            scaledImage = scaledImage.scaledToHeight( scaledSize.height() * factor )
+        }
+
+        QString tmpTarget = target;
+        if (tmpTarget.isEmpty()) {
+            QFileInfo info(source);
+            tmpTarget = uniqueFilePath(source, info.canonicalPath());
+        }
+
+        // If this is an avatar we might need to create the path first.
+        QString targetPath = tmpTarget.left(tmpTarget.lastIndexOf("/"));
+        if (!QDir().mkpath(targetPath)) {
+           qWarning() << Q_FUNC_INFO << "failed to create target path";
+           emit scaled(false);
+           return;
+        }
+
+        QString targetFile = save(scaledImage, source, target, format);
+        emit scaled(!targetFile.isEmpty(), targetFile);
+    } else {
+        emit scaled(false);
+    }
+#endif
+}
+
