@@ -46,7 +46,7 @@ SilicaGridView {
 
     property real cellSize: Math.floor(width / columnCount)
     property int columnCount: Math.floor(width / Theme.itemSizeHuge)
-    property int maxContentY: Math.max(0, contentHeight - height) + originY
+    property int maxContentY: Math.max(0, contentHeight - height) + originY + __silica_menu_height
     property string dateProperty: "dateTaken"
 
     // QTBUG-95676: StopAtBounds does not work with StrictlyEnforceRange,
