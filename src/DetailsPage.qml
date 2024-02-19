@@ -156,7 +156,9 @@ Page {
                             : ""
                     cameraManufacturerDetail.value: model.cameraManufacturer
                     cameraModelDetail.value: model.cameraModel
-                    exposureTimeDetail.value: model.exposureTime
+                    exposureTimeDetail.value: model.exposureTime != ""
+                                              ? formatExposure(model.exposureTime)
+                                              : ""
                     fNumberDetail.value: model.fNumber != ""
                             ? formatFNumber(model.fNumber)
                             : ""
