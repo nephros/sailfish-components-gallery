@@ -57,8 +57,7 @@ Translation source for sailfish-components-gallery
 %build
 
 %qmake5
-
-make %{?jobs:-j%jobs}
+%make_build
 
 %install
 rm -rf %{buildroot}
@@ -76,9 +75,6 @@ install -m 644 doc/html/*.html %{buildroot}/%{_docdir}/Sailfish/Gallery/
 install -m 644 doc/sailfish-gallery.qch %{buildroot}/%{_docdir}/Sailfish/Gallery/
 install -m 644 doc/html/sailfish-gallery.index %{buildroot}/%{_docdir}/Sailfish/Gallery/
 
-#
-# Sailfish Gallery files
-#
 %files
 %defattr(-,root,root,-)
 %license LICENSE.BSD
@@ -91,9 +87,7 @@ install -m 644 doc/html/sailfish-gallery.index %{buildroot}/%{_docdir}/Sailfish/
 
 %files tests
 %defattr(-,root,root,-)
-# >> files tests
 /opt/tests/sailfish-components-gallery-qt5/*
-# << files tests
 
 %files ts-devel
 %defattr(-,root,root,-)
