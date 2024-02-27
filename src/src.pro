@@ -19,8 +19,12 @@ contains(CONFIG, desktop) {
 import.files = *.qml qmldir plugins.qmltypes scripts
 import.path = $$TARGETPATH
 
-private.files = private/*.qml private/qmldir private/plugins.qmltypes private/lib*
+private.files = private/*.qml private/qmldir private/plugins.qmltypes
 private.path = $$TARGETPATH/private
+
+privatesymlink.CONFIG += no_check_exist
+privatesymlink.files = private/libsailfishgalleryplugin.so
+privatesymlink.path = $$TARGETPATH/private
 
 target.path = $$TARGETPATH
 
@@ -69,7 +73,7 @@ QMAKE_EXTRA_TARGETS += translations engineering_english
 
 PRE_TARGETDEPS += translations engineering_english
 
-INSTALLS += import private target translations_install engineering_english_install
+INSTALLS += import private privatesymlink target translations_install engineering_english_install
 
 # HACK: pass -nocomposites to work around the issue with types leaked
 # (mostly) from Silica. All of these are composite types and we have no other
