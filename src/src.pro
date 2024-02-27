@@ -16,8 +16,12 @@ contains(CONFIG, desktop) {
     }
 }
 
-import.files = *.qml private qmldir plugins.qmltypes scripts
+import.files = *.qml qmldir plugins.qmltypes scripts
 import.path = $$TARGETPATH
+
+private.files = private/*.qml private/qmldir private/plugins.qmltypes private/lib*
+private.path = $$TARGETPATH/private
+
 target.path = $$TARGETPATH
 
 OTHER_FILES += \
@@ -65,7 +69,7 @@ QMAKE_EXTRA_TARGETS += translations engineering_english
 
 PRE_TARGETDEPS += translations engineering_english
 
-INSTALLS += import target translations_install engineering_english_install
+INSTALLS += import private target translations_install engineering_english_install
 
 # HACK: pass -nocomposites to work around the issue with types leaked
 # (mostly) from Silica. All of these are composite types and we have no other
