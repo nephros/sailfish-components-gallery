@@ -51,6 +51,7 @@ ZoomableFlickable {
 
     Image {
         id: photo
+
         property var errorLabel
         objectName: "zoomableImage"
 
@@ -83,6 +84,7 @@ ZoomableFlickable {
 
     Image {
         id: largePhoto
+
         sourceSize {
             width: 3264
             height: 3264
@@ -126,8 +128,10 @@ ZoomableFlickable {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
         parent: flickable
+
         Timer {
             id: delayBusyIndicator
+
             running: photo.status === Image.Loading
             interval: 1000
         }
@@ -135,6 +139,7 @@ ZoomableFlickable {
 
     Component {
         id: errorLabelComponent
+
         InfoLabel {
             //: Image loading failed
             //% "Couldn't load the image. It could have been deleted or become inaccessible."

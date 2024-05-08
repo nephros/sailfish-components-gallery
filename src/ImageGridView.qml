@@ -34,7 +34,6 @@ SilicaGridView {
     Private.Scrollbar {
         property var date: {
             if (grid.model) {
-
                 // Disable on Gallery albums that don't use QtDocGallery
                 if (typeof grid.model.get === "undefined") {
                     visible = false
