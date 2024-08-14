@@ -138,10 +138,10 @@ Page {
                     whiteBalanceDetail.value: model.whiteBalance != ""
                               ? whiteBalanceValues[model.whiteBalance]
                               : ""
-                    gpsDetail.value: model.latitude != ""
-                            ? formatGpsCoordinates(model.latitude,
-                                                   model.longitude,
-                                                   model.altitude)
+                    coordinateDetail.value: model.latitude != ""
+                            ? formatCoordinates(model.latitude,
+                                                model.longitude,
+                                                model.altitude)
                             : ""
                     descriptionDetail.value: model.description
                     copyrightDetail.value: model.copyright

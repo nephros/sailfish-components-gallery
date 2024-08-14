@@ -18,7 +18,7 @@ Column {
     property alias focalLengthDetail: focalLengthItem
     property alias meteringModeDetail: meteringModeItem
     property alias whiteBalanceDetail: whiteBalanceItem
-    property alias gpsDetail: gpsItem
+    property alias coordinateDetail: coordinateItem
     property alias durationDetail: durationItem
     property alias descriptionDetail: descriptionItem
     property alias copyrightDetail: copyrightItem
@@ -54,7 +54,7 @@ Column {
         }
     }
 
-    function formatGpsCoordinates(latitude, longitude, altitude) {
+    function formatCoordinates(latitude, longitude, altitude) {
         //: GPS coordinates
         //% "Latitude %1 - Longitude %2 - Altitude %3"
         return qsTrId("components_gallery-value-gps")
@@ -102,9 +102,9 @@ Column {
         alignment: Qt.AlignLeft
     }
     DetailItem {
-        id: gpsItem
-        //% "GPS"
-        label: qsTrId("components_gallery-la-gps")
+        id: coordinateItem
+        //% "Coordinate"
+        label: qsTrId("components_gallery-la-coordinate")
         visible: value.length > 0
         alignment: Qt.AlignLeft
     }
