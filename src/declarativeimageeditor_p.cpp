@@ -14,8 +14,8 @@
 
 #include <cmath>
 
-DeclarativeImageEditorPrivate::DeclarativeImageEditorPrivate(QObject *parent) :
-    QObject(parent)
+DeclarativeImageEditorPrivate::DeclarativeImageEditorPrivate(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -75,7 +75,6 @@ QString DeclarativeImageEditorPrivate::save(QImage &image, const QString &source
 
     return targetFile;
 }
-
 #endif
 
 QString DeclarativeImageEditorPrivate::uniqueFilePath(const QString &sourceFilePath, const QString &path)
@@ -122,7 +121,6 @@ QString DeclarativeImageEditorPrivate::uniqueFilePath(const QString &sourceFileP
     return filePath + fileName;
 }
 
-
 void DeclarativeImageEditorPrivate::rotate(const QString &source, const QString &target, int rotation)
 {
 #ifndef DESKTOP
@@ -159,7 +157,8 @@ void DeclarativeImageEditorPrivate::rotate(const QString &source, const QString 
 }
 
 // Run in QtConcurrent::run
-void  DeclarativeImageEditorPrivate::crop(const QString &source, const QString &target, const QSizeF &cropSize, const QSizeF &imageSize, const QPointF &position)
+void  DeclarativeImageEditorPrivate::crop(const QString &source, const QString &target, const QSizeF &cropSize,
+                                          const QSizeF &imageSize, const QPointF &position)
 {
 #ifndef DESKTOP
     QImageReader reader(source);
@@ -197,7 +196,8 @@ void  DeclarativeImageEditorPrivate::crop(const QString &source, const QString &
         }
 
         if (reader.transformation() & QImageIOHandler::TransformationRotate90) {
-            cropRect = QRect(cropRect.y(), scaledSize.width() - cropRect.x() - cropRect.width(), cropRect.height(), cropRect.width());
+            cropRect = QRect(cropRect.y(), scaledSize.width() - cropRect.x() - cropRect.width(),
+                             cropRect.height(), cropRect.width());
 
             scaledSize.transpose();
         }
@@ -229,7 +229,8 @@ void  DeclarativeImageEditorPrivate::crop(const QString &source, const QString &
 #endif
 }
 
-void DeclarativeImageEditorPrivate::adjustLevels(const QString &source, const QString &target, double brightness, double contrast)
+void DeclarativeImageEditorPrivate::adjustLevels(const QString &source, const QString &target,
+                                                 double brightness, double contrast)
 {
 #ifndef DESKTOP
     // Scale down large images before adjusting them.
@@ -300,7 +301,10 @@ void DeclarativeImageEditorPrivate::adjustLevels(const QString &source, const QS
             component *= alpha;
         }
 
-        pixel = qRgba(components[0] * intScalar, components[1] * intScalar, components[2] * intScalar, alpha * intScalar);
+        pixel = qRgba(components[0] * intScalar,
+                      components[1] * intScalar,
+                      components[2] * intScalar,
+                      alpha * intScalar);
     }
 
     QString targetFile = save(img, source, target, format);

@@ -13,7 +13,6 @@ MediaPlayer {
 
     property bool busy
 
-    onLoadedChanged: if (loaded) playerLoader.anchors.centerIn = currentItem
     /*!
       \internal
     */
@@ -27,7 +26,14 @@ MediaPlayer {
     */
     property bool _reseting
 
+    property var asyncPause: Timer {
+        interval: 16
+        onTriggered: pause()
+    }
+
     signal displayError
+
+    onLoadedChanged: if (loaded) playerLoader.anchors.centerIn = currentItem
 
     onPositionChanged: {
         // JB#50154: Work-around, force load frame preview when seeking the end
@@ -35,11 +41,6 @@ MediaPlayer {
             asyncPause.restart()
         }
         busy = false
-    }
-
-    property var asyncPause: Timer {
-        interval: 16
-        onTriggered: pause()
     }
 
     onHasErrorChanged: {
@@ -118,9 +119,11 @@ MediaPlayer {
 
         Permissions {
             id: permissions
+
             applicationClass: "player"
             Resource {
                 id: keysResource
+
                 type: Resource.HeadsetButtons
                 optional: true
             }

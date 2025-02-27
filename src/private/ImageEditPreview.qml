@@ -107,12 +107,13 @@ Item {
 
     Timer {
         id: delayedReset
+
         running: true; interval: 10
         onTriggered: root.resetZoom()
     }
 
     ImageEditor {
-        id : editor
+        id: editor
 
         anchors.centerIn: parent
         source: zoomableImage.source
@@ -180,8 +181,12 @@ Item {
             })
             zoomableImage.bottomMargin = Qt.binding( function () { return zoomableImage.topMargin })
 
-            var contentHeight = Math.min(zoomableImage.transpose ? zoomableImage.photo.width : zoomableImage.photo.height, root.height)
-            var contentWidth = Math.min(zoomableImage.transpose ? zoomableImage.photo.height : zoomableImage.photo.width, root.width)
+            var contentHeight = Math.min(zoomableImage.transpose
+                                         ? zoomableImage.photo.width : zoomableImage.photo.height,
+                                         root.height)
+            var contentWidth = Math.min(zoomableImage.transpose
+                                        ? zoomableImage.photo.height : zoomableImage.photo.width,
+                                        root.width)
 
             zoomableImage.minimumZoom = zoomableImage.zoom * Math.max(height/contentHeight, width/contentWidth)
             if (realAspectRatio !== aspectRatio) {

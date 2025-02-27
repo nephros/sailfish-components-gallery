@@ -70,7 +70,9 @@ public:
         if (QLatin1String(uri) == QLatin1String("Sailfish.Gallery.private")) {
             qmlRegisterType<DeclarativeImageEditor>("Sailfish.Gallery.private", 1, 0, "ImageEditor");
             qmlRegisterType<DeclarativeImageMetadata>("Sailfish.Gallery.private", 1, 0, "ImageMetadata");
-            qmlRegisterSingletonType<DeclarativeAvatarFileHandler>("Sailfish.Gallery.private", 1, 0, "AvatarFileHandler", DeclarativeAvatarFileHandler::api_factory);
+            qmlRegisterSingletonType<DeclarativeAvatarFileHandler>("Sailfish.Gallery.private", 1, 0,
+                                                                   "AvatarFileHandler",
+                                                                   DeclarativeAvatarFileHandler::api_factory);
             qmlRegisterSingletonType<ImageWriter>("Sailfish.Gallery.private", 1, 0, "ImageWriter", ImageWriter::api_factory);
         }
     }

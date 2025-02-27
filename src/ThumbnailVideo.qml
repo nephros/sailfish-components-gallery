@@ -22,9 +22,7 @@ ThumbnailImage {
     Label {
         id: durationLabel
 
-        font {
-            pixelSize: Theme.fontSizeSmall
-        }
+        font.pixelSize: Theme.fontSizeSmall
         anchors {
             bottom: titleLabel.top; left: parent.left; leftMargin: Theme.paddingMedium
         }
@@ -33,9 +31,7 @@ ThumbnailImage {
     Label {
         id: titleLabel
 
-        font {
-            pixelSize: Theme.fontSizeExtraSmall
-        }
+        font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor
         truncationMode: TruncationMode.Elide
         anchors {

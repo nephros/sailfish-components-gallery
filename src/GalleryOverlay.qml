@@ -136,6 +136,7 @@ Item {
 
     Timer {
         id: seekTimer
+
         interval: 16
         property int position
         onTriggered: {
@@ -176,15 +177,18 @@ Item {
 
     IconButton {
         id: detailsButton
+
         x: Theme.horizontalPageMargin
         y: Theme.paddingLarge
         icon.source: "image://theme/icon-m-about"
         visible: overlay.localFile
-        onClicked: pageStack.animatorPush("DetailsPage.qml", { 'source': overlay.source, 'isImage': overlay.isImage } )
+        onClicked: pageStack.animatorPush("DetailsPage.qml",
+                                          { 'source': overlay.source, 'isImage': overlay.isImage } )
     }
 
     Timer {
         id: hideOverlayTimer
+
         interval: 4000
         running: overlay.active && playing
         onTriggered: {
@@ -198,6 +202,7 @@ Item {
 
     Column {
         id: toolbarParent
+
         width: parent.width
         anchors  {
             bottom: parent.bottom
@@ -208,8 +213,10 @@ Item {
 
         Row {
             id: sliderRow
+
             visible: !isImage
             width: parent.width
+
             Slider {
                 id: positionSlider
 
@@ -260,7 +267,8 @@ Item {
                     repeat: true
                     running: player && player.busy && Qt.application.active
                     onRunningChanged: positionSlider.progressOpacity = 1.0
-                    onTriggered: positionSlider.progressOpacity = positionSlider.progressOpacity >= 0.99 ? Theme.highlightBackgroundOpacity : 1.0
+                    onTriggered: positionSlider.progressOpacity = positionSlider.progressOpacity >= 0.99
+                                 ? Theme.highlightBackgroundOpacity : 1.0
                 }
 
                 property real progressOpacity: 1.0
@@ -292,6 +300,7 @@ Item {
             id: toolbar
 
             property int expanded: isImage
+
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: Theme.paddingLarge
             opacity: expanded ? 1.0 : 0.0
@@ -300,6 +309,7 @@ Item {
 
             Loader {
                 id: additionalActionsLoader
+
                 anchors.verticalCenter: parent.verticalCenter
             }
 
@@ -325,6 +335,7 @@ Item {
 
             IconButton {
                 id: deleteButton
+
                 icon.source: "image://theme/icon-m-delete"
                 visible: overlay.localFile && fileInfo.exists
                 anchors.verticalCenter: parent.verticalCenter
@@ -333,8 +344,10 @@ Item {
 
             IconButton {
                 id: editButton
+
                 icon.source: "image://theme/icon-m-edit"
-                visible: !overlay.error && isImage && !viewerOnlyMode && ImageWriter.isMimeTypeSupported(fileInfo.mimeType)
+                visible: !overlay.error && isImage && !viewerOnlyMode
+                         && ImageWriter.isMimeTypeSupported(fileInfo.mimeType)
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: {
                     overlay.triggerAction("edit")
@@ -342,6 +355,7 @@ Item {
 
                 Loader {
                     id: editPageLoader
+
                     active: false
                     sourceComponent: ImageEditDialog {
                         source: overlay.source
@@ -370,6 +384,7 @@ Item {
 
             IconButton {
                 id: shareButton
+
                 icon.source: "image://theme/icon-m-share"
                 visible: !overlay.error
                 anchors.verticalCenter: parent.verticalCenter
@@ -387,10 +402,12 @@ Item {
                 icon.source: "image://theme/icon-m-ambience"
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: {
-                    if (suppressClick) return
+                    if (suppressClick)
+                        return
                     suppressClick = true
                     Ambience.create(overlay.source, function(ambienceId) {
-                        pageStack.animatorPush("com.jolla.gallery.ambience.AmbienceSettingsDialog", { contentId: ambienceId })
+                        pageStack.animatorPush("com.jolla.gallery.ambience.AmbienceSettingsDialog",
+                                               { contentId: ambienceId })
                         ambienceButton.suppressClick = false
                     })
                 }

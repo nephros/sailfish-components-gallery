@@ -5,9 +5,9 @@
 #include <QtConcurrentRun>
 #include <QRectF>
 
-DeclarativeImageEditor::DeclarativeImageEditor(QQuickItem *parent) :
-    QQuickItem(parent),
-    d_ptr(new DeclarativeImageEditorPrivate)
+DeclarativeImageEditor::DeclarativeImageEditor(QQuickItem *parent)
+    : QQuickItem(parent)
+    , d_ptr(new DeclarativeImageEditorPrivate)
 {
     setFlag(QQuickItem::ItemHasContents, true);
     connect(d_ptr, SIGNAL(cropped(bool,QString)), this, SLOT(cropResult(bool,QString)));

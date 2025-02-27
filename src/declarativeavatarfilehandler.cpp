@@ -7,11 +7,8 @@
 
 static QString avatarPath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) +
-           QDir::separator() +
-           QLatin1String("data") +
-           QDir::separator() +
-           QLatin1String("avatars");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+           + QLatin1String("/data/avatars");
 }
 
 DeclarativeAvatarFileHandler::DeclarativeAvatarFileHandler(QObject *parent)
