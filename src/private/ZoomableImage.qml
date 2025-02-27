@@ -45,16 +45,6 @@ ImageViewer {
         SmoothedAnimation { duration: 200 }
     }
 
-    // On the Jolla 1, we're experiencing a crash inside the OpenGL
-    // driver blob which starts when an FBO is somewhere around 2500+
-    // pixels in size. Max texture size and Max renderbuffer size are
-    // both 4096, well within, so the actual cause is unknown.
-    property bool isJolla1: Screen.width == 540 && Screen.height == 960
-    largePhoto.sourceSize {
-        width: isJolla1 ? 2048 : 3264
-        height: isJolla1 ? 2048 : 3264
-    }
-
     BrightnessContrast {
         id: adjustLevels
 
