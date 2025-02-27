@@ -22,6 +22,7 @@ ThumbnailBase {
 
     Thumbnail {
         id: thumbnail
+
         property bool gridMoving: thumbnailBase.grid ? thumbnailBase.grid.moving : false
 
         source: thumbnailBase.source
@@ -34,7 +35,8 @@ ThumbnailBase {
 
         onGridMovingChanged: {
             if (!gridMoving) {
-                var visibleIndex = Math.floor(thumbnailBase.grid.contentY / thumbnailBase.contentHeight) * thumbnailBase.grid.columnCount
+                var visibleIndex = Math.floor(thumbnailBase.grid.contentY / thumbnailBase.contentHeight)
+                        * thumbnailBase.grid.columnCount
 
                 if (visibleIndex <= index && index <= visibleIndex + 18) {
                     priority = Thumbnail.HighPriority
@@ -53,6 +55,7 @@ ThumbnailBase {
 
     Component {
         id: errorLabelComponent
+
         Label {
             //: Thumbnail Image loading failed
             //% "Oops, can't display the thumbnail!"

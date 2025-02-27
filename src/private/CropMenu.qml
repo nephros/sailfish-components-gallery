@@ -27,6 +27,7 @@ Rectangle {
 
     SilicaFlickable {
         id: flickable
+
         width: parent.width
         height: Math.min(parent.height, contentHeight)
         anchors.verticalCenter: parent.verticalCenter
@@ -57,6 +58,7 @@ Rectangle {
 
             Repeater {
                 id: repeater
+
                 model: AspectRatioModel {}
                 MenuItem {
                     text: model.text

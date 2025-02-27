@@ -24,15 +24,16 @@ Rectangle {
 
     Column {
         id: column
+
         y: Theme.paddingMedium
         x: Theme.paddingLarge
         width: parent.width - 2 * x
 
         DebugLabel {
-            text: "Margins t " +  flickable.topMargin + " b " + flickable.bottomMargin + " l " + flickable.leftMargin + " r " + flickable.rightMargin
+            text: "Margins t " + flickable.topMargin + " b " + flickable.bottomMargin + " l " + flickable.leftMargin + " r " + flickable.rightMargin
         }
         DebugLabel {
-            text: "Content w " +  flickable.contentWidth + " h " + flickable.contentHeight + " x " + flickable.contentX + " y " + flickable.contentY
+            text: "Content w " + flickable.contentWidth + " h " + flickable.contentHeight + " x " + flickable.contentX + " y " + flickable.contentY
         }
         DebugLabel {
             text: "Item iw " + flickable.implicitContentWidth + " ih " + flickable.implicitContentWidth + " interactive " + flickable.interactive

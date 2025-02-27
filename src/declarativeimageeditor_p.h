@@ -25,7 +25,8 @@ public:
 
 public Q_SLOTS:
     void rotate(const QString &source, const QString &target, int rotation);
-    void crop(const QString &source, const QString &target, const QSizeF &cropSize, const QSizeF &imageSize, const QPointF &position);
+    void crop(const QString &source, const QString &target, const QSizeF &cropSize,
+              const QSizeF &imageSize, const QPointF &position);
     void adjustLevels(const QString &source, const QString &target, double brightness, double contrast);
 
 Q_SIGNALS:

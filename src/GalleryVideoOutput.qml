@@ -14,7 +14,6 @@ VideoOutput {
     visible: player && player.playbackState !== MediaPlayer.StoppedState
 
     BusyIndicator {
-        id: busyIndicator
         z: 1
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large

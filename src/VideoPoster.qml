@@ -45,6 +45,7 @@ Item {
 
     MouseArea {
         id: videoMouse
+
         anchors {
             fill: parent
             margins: Theme.paddingLarge // don't react near display edges
@@ -89,12 +90,14 @@ Item {
 
     BusyIndicator {
         id: busyIndicator
+
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
     }
 
     Image {
         id: icon
+
         anchors.centerIn: parent
         enabled: !busy && (overlayMode || !playing) && !root.error
         opacity: enabled ? 1.0 : 0.0
@@ -117,6 +120,7 @@ Item {
     }
     Component {
         id: errorLabelComponent
+
         Rectangle {
             anchors.fill: parent
             color: Theme.rgba(Theme.overlayBackgroundColor, Theme.highlightBackgroundOpacity)
@@ -127,9 +131,7 @@ Item {
                 //% "Oops, can't load the video"
                 text: qsTrId("components_gallery-la-video-loading-failed")
                 anchors.verticalCenter: parent.verticalCenter
-
             }
         }
     }
-
 }

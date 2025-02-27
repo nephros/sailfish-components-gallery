@@ -18,6 +18,7 @@ Slider {
 
     IconButton {
         id: resetButton
+
         onClicked: reset()
         anchors {
             right: parent.right

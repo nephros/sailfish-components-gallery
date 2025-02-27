@@ -72,30 +72,35 @@ Column {
     }
     DetailItem {
         id: filePathItem
+
         //% "File path"
         label: qsTrId("components_gallery-la-file_path")
         alignment: Qt.AlignLeft
     }
     DetailItem {
         id: fileSizeItem
+
         //% "File size"
         label: qsTrId("components_gallery-la-file_size")
         alignment: Qt.AlignLeft
     }
     DetailItem {
         id: typeItem
+
         //% "Type"
         label: qsTrId("components_gallery-la-type")
         alignment: Qt.AlignLeft
     }
     DetailItem {
         id: sizeItem
+
         //% "Size"
         label: qsTrId("components_gallery-la-size")
         alignment: Qt.AlignLeft
     }
     DetailItem {
         id: dateTakenItem
+
         //% "Date Taken"
         label: qsTrId("components_gallery-la-date-taken")
         visible: value.length > 0
@@ -103,6 +108,7 @@ Column {
     }
     DetailItem {
         id: coordinateItem
+
         //% "Coordinate"
         label: qsTrId("components_gallery-la-coordinate")
         visible: value.length > 0
@@ -110,6 +116,7 @@ Column {
     }
     DetailItem {
         id: durationItem
+
         //% "Duration"
         label: qsTrId("components_gallery-la-duration")
         visible: value.length > 0
@@ -117,6 +124,7 @@ Column {
     }
     DetailItem {
         id: descriptionItem
+
         //% "Description"
         label: qsTrId("components_gallery-la-description")
         visible: value.length > 0
@@ -124,6 +132,7 @@ Column {
     }
     DetailItem {
         id: copyrightItem
+
         //% "Copyright"
         label: qsTrId("components_gallery-la-copyright")
         visible: value.length > 0
@@ -131,6 +140,7 @@ Column {
     }
     DetailItem {
         id: authorItem
+
         //% "Author"
         label: qsTrId("components_gallery-la-author")
         visible: value.length > 0
@@ -152,6 +162,7 @@ Column {
 
     DetailItem {
         id: cameraManufacturerItem
+
         //% "Camera Manufacturer"
         label: qsTrId("components_gallery-la-camera-manufacturer")
         visible: value.length > 0
@@ -159,6 +170,7 @@ Column {
     }
     DetailItem {
         id: cameraModelItem
+
         //% "Camera Model"
         label: qsTrId("components_gallery-la-camera-model")
         visible: value.length > 0
@@ -166,6 +178,7 @@ Column {
     }
     DetailItem {
         id: exposureTimeItem
+
         //% "Exposure Time"
         label: qsTrId("components_gallery-la-exposure-time")
         visible: value.length > 0 && value != "0"
@@ -173,6 +186,7 @@ Column {
     }
     DetailItem {
         id: fNumberItem
+
         //% "Aperture"
         label: qsTrId("components_gallery-la-aperture")
         visible: value.length > 0
@@ -180,6 +194,7 @@ Column {
     }
     DetailItem {
         id: flashEnabledItem
+
         //% "Flash"
         label: qsTrId("components_gallery-la-flash-enabled")
         visible: value.length > 0
@@ -187,6 +202,7 @@ Column {
     }
     DetailItem {
         id: focalLengthItem
+
         //% "Focal Length"
         label: qsTrId("components_gallery-la-focal-length")
         visible: value.length > 0
@@ -194,6 +210,7 @@ Column {
     }
     DetailItem {
         id: meteringModeItem
+
         //% "Metering Mode"
         label: qsTrId("components_gallery-la-metering-mode")
         visible: value.length > 0
@@ -201,6 +218,7 @@ Column {
     }
     DetailItem {
         id: whiteBalanceItem
+
         //% "White Balance"
         label: qsTrId("components_gallery-la-white-balance")
         visible: value.length > 0

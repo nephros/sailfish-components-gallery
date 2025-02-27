@@ -17,6 +17,7 @@ Rectangle {
 
     color: Theme.highlightBackgroundColor
     opacity: active ? highlightOpacity : 0.0
+
     Behavior on opacity {
         FadeAnimation {
             duration: 100

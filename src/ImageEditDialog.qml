@@ -121,6 +121,7 @@ Dialog {
 
     Timer {
         id: delayedCompletion
+
         interval: 16
         onTriggered: {
             if (!editInProgress) finished()
@@ -170,6 +171,7 @@ Dialog {
 
                 Label {
                     id: titleLabel
+
                     y: Theme.paddingLarge
                     //% "Edit photo"
                     text: qsTrId("sailfish-components-gallery-he-edit_photo")
@@ -199,6 +201,7 @@ Dialog {
 
         Loader {
             id: slidersLoader
+
             Behavior on opacity { FadeAnimator {}}
             opacity: enabled ? 1.0 : 0.0
             active: _lightAndContrastMode
@@ -232,6 +235,7 @@ Dialog {
 
         Row {
             id: toolbar
+
             anchors  {
                 bottom: parent.bottom
                 bottomMargin: Theme.paddingLarge
@@ -285,6 +289,7 @@ Dialog {
 
     Notification {
         id: errorNotification
+
         isTransient: true
         appIcon: "icon-system-warning"
     }

@@ -27,6 +27,7 @@ ImageViewer {
 
     Binding {
         id: transposeBinding
+
         target: root
         when: rotationAnimation.running
         property: "transpose"
@@ -34,6 +35,7 @@ ImageViewer {
 
     NumberAnimation {
         id: rotationAnimation
+
         target: root
         property: "imageRotation"
         easing.type: Easing.InOutQuad
@@ -58,6 +60,7 @@ ImageViewer {
 
     Timer {
         id: delayPressTimer
+
         running: pressed
         interval: 300
     }
