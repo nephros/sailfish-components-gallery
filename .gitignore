@@ -1,4 +1,7 @@
 *.o
+*.so
 *.moc
 moc_*
 Makefile
+*.qm
+*.ts
