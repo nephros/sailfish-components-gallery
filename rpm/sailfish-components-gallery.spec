@@ -1,10 +1,15 @@
+# SPDX-FileCopyrightText: 2013-2023 Jolla Ltd.
+# SPDX-FileCopyrightText: 2024-2025 Jolla Mobile Ltd
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 Name:       sailfish-components-gallery-qt5
 
 Summary:    Sailfish Gallery UI Components
 Version:    1.2.8
 Release:    1
-License:    Proprietary
-URL:        https://bitbucket.org/jolla/ui-sailfish-components-gallery
+License:    BSD-3-Clause
+URL:        https://github.com/sailfishos/sailfish-components-gallery
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
@@ -76,6 +81,7 @@ install -m 644 doc/sailfish-gallery.qch %{buildroot}/%{_docdir}/Sailfish/Gallery
 install -m 644 doc/html/sailfish-gallery.index %{buildroot}/%{_docdir}/Sailfish/Gallery/
 
 %files
+%license LICENSES/BSD-3-Clause.txt
 %{_libdir}/qt5/qml/Sailfish/Gallery/*
 %{_datadir}/translations/sailfish_components_gallery_qt5_eng_en.qm
 

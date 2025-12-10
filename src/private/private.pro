@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Jolla Ltd.
+# SPDX-FileCopyrightText: 2025 Jolla Mobile Ltd
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 # The only purpose of this subproject is invocation of qmlplugindump. All other
 # stuff should go to the parent project.
 

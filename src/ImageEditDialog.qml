@@ -1,10 +1,8 @@
-/****************************************************************************
-**
-** Copyright (c) 2013 - 2020 Jolla Ltd.
-** Copyright (c) 2020 Open Mobile Platform LLC.
-** All rights reserved.
-**
-****************************************************************************/
+// SPDX-FileCopyrightText: 2018-2023 Jolla Ltd.
+// SPDX-FileCopyrightText: 2020 Open Mobile Platform LLC.
+// SPDX-FileCopyrightText: 2024-2025 Jolla Mobile Ltd
+//
+// SPDX-License-Identifier: BSD-3-Clause
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0

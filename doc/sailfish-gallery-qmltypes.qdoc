@@ -1,9 +1,9 @@
-/****************************************************************************************
-**
-** Copyright (C) 2022 Jolla Ltd.
-** All rights reserved.
-**
-****************************************************************************************/
+/*
+ * SPDX-FileCopyrightText: 2022-2023 Jolla Ltd.
+ * SPDX-FileCopyrightText: 2024-2025 Jolla Mobile Ltd
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 
 /*!
 \qmlmodule Sailfish.Gallery 1.0
