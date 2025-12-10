@@ -6,7 +6,7 @@
 Name:       sailfish-components-gallery-qt5
 
 Summary:    Sailfish Gallery UI Components
-Version:    1.2.8
+Version:    1.3.0
 Release:    1
 License:    BSD-3-Clause
 URL:        https://github.com/sailfishos/sailfish-components-gallery
