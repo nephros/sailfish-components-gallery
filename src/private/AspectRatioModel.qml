@@ -1,9 +1,7 @@
-/****************************************************************************
-**
-** Copyright (C) 2013 Jolla Ltd.
-** Contact: Raine Mäkeläinen <raine.makelainen@jollamobile.com>
-**
-****************************************************************************/
+// SPDX-FileCopyrightText: 2013-2023 Jolla Ltd.
+// SPDX-FileCopyrightText: 2024-2025 Jolla Mobile Ltd
+//
+// SPDX-License-Identifier: BSD-3-Clause
 
 import QtQuick 2.0
 
